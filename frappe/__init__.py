@@ -77,9 +77,9 @@ def as_unicode(text, encoding='utf-8'):
 	elif text==None:
 		return ''
 	elif isinstance(text, binary_type):
-		return text_type(text, encoding)
+		return str(text, encoding)
 	else:
-		return text_type(text)
+		return str(text)
 
 def get_lang_dict(fortype, name=None):
 	"""Returns the translated language dict for the given type and name.
@@ -1379,7 +1379,7 @@ def get_print(doctype=None, name=None, print_format=None, style=None, html=None,
 				doc = get_doc(doctype, name)
 			return create_zugferd_pdf(docname=name, verify=True, format=print_format, doc=doc, doctype=doctype, no_letterhead=no_letterhead)
 		else:
-			return get_pdf(html, output = output, options = options)
+			return get_pdf(html, output=output, options=options, print_format=print_format)
 	else:
 		return html
 
